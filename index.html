@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orange Gradient Showcase</title>
+    <style>
+        :root {
+            --orange-base: #FF8C00;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            color: var(--orange-base);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .gradient-preview {
+            height: 200px;
+            width: 100%;
+        }
+
+        .card-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .code-block {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            word-break: break-all;
+            color: #555;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+        }
+
+        .download-btn {
+            background-color: var(--orange-base);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+            text-align: center;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        .download-btn:hover {
+            background-color: #e67e00;
+        }
+
+        /* Gradient Definitions */
+        .g1 { background: linear-gradient(45deg, #FF8C00, #FF0080); }
+        .g2 { background: linear-gradient(to right, #F6D365, #FF8C00); }
+        .g3 { background: linear-gradient(135deg, #FF8C00 0%, #FF4E50 100%); }
+        .g4 { background: linear-gradient(to top, #FF8C00, #FFA07A); }
+        .g5 { background: linear-gradient(90deg, #FF8C00, #ED1E79); }
+        .g6 { background: linear-gradient(45deg, #FF8C00, #00F2FE); }
+        .g7 { background: linear-gradient(to right, #2C3E50, #FF8C00); }
+        .g8 { background: linear-gradient(135deg, #00C6FF, #0072FF, #FF8C00); }
+        .g9 { background: linear-gradient(90deg, #3F2B96 0%, #FF8C00 100%); }
+        .g10 { background: linear-gradient(to bottom, #4FACFE, #FF8C00); }
+        .g11 { background: radial-gradient(circle, #FF8C00, #000000); }
+        .g12 { background: linear-gradient(45deg, #434343, #FF8C00); }
+        .g13 { background: linear-gradient(to right, #616161, #9BC5C3, #FF8C00); }
+        .g14 { background: linear-gradient(135deg, #6A11CB, #2575FC, #FF8C00); }
+        .g15 { background: linear-gradient(45deg, #FF8C00, #38EF7D); }
+        .g16 { background: linear-gradient(to right, #FF8C00, #8E44AD, #2ECC71); }
+        .g17 { background: linear-gradient(45deg, #F093FB, #F5576C, #FF8C00); }
+        .g18 { background: linear-gradient(135deg, #FF8C00 10%, #DCE35B 100%); }
+        .g19 { background: radial-gradient(circle, #FF8C00 0%, #B22222 100%); }
+        .g20 { background: linear-gradient(to bottom, #FFFFFF, #FF8C00); }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Orange Gradient Collection</h1>
+    <p>Click the buttons to download high-res (1500x500) images.</p>
+</header>
+
+<div class="grid">
+    <!-- Card items - all updated with a download button -->
+    <div class="card">
+        <div class="gradient-preview g1"></div>
+        <div class="card-info">
+            <span class="card-title">1. Classic Sunset</span>
+            <div class="code-block">linear-gradient(45deg, #FF8C00, #FF0080)</div>
+            <button class="download-btn" onclick="downloadGradient('g1', 'Classic-Sunset')">Download Image</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="gradient-preview g2"></div>
+        <div class="card-info">
+            <span class="card-title">2. Golden Hour</span>
+            <div class="code-block">linear-gradient(to right, #F6D365, #FF8C00)</div>
+            <button class="download-btn" onclick="downloadGradient('g2', 'Golden-Hour')">Download Image</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="gradient-preview g3"></div>
+        <div class="card-info">
+            <span class="card-title">3. Fire & Ice</span>
+            <div class="code-block">linear-gradient(135deg, #FF8C00 0%, #FF4E50 100%)</div>
+            <button class="download-btn" onclick="downloadGradient('g3', 'Fire-and-Ice')">Download Image</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="gradient-preview g4"></div>
+        <div class="card-info">
+            <span class="card-title">4. Peachy Keen</span>
+            <div class="code-block">linear-gradient(to top, #FF8C00, #FFA07A)</div>
+            <button class="download-btn" onclick="downloadGradient('g4', 'Peachy-Keen')">Download Image</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="gradient-preview g5"></div>
+        <div class="card-info">
+            <span class="card-title">5. Tropical Heat</span>
+            <div class="code-block">linear-gradient(90deg, #FF8C00, #ED1E79)</div>
+            <button class="download-btn" onclick="downloadGradient('g5', 'Tropical-Heat')">Download Image</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="gradient-preview g6"></div>
+        <div class="card-info">
+            <span class="card-title">6. Electric Punch</span>
+            <div class="code-block">linear-gradient(45deg, #FF8C00, #00F2FE)</div>
+            <button class="download-btn" onclick="downloadGradient('g6', 'Electric-Punch')">Download Image</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="gradient-preview g7"></div>
+        <div class="card-info">
+            <span class="card-title">7. Deep Ocean Sun</span>
+            <div class="code-block">linear-gradient(to right, #2C3E50, #FF8C00)</div>
+            <button class="download-btn" onclick="downloadGradient('g7', 'Deep-Ocean-Sun')">Download Image</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="gradient-preview g8"></div>
+        <div class="card-info">
+            <span class="card-title">8. Cyberpunk Glow</span>
+            <div class="code-block">linear-gradient(135deg, #00C6FF, #0072FF, #FF8C00)</div>
+            <button class="download-btn" onclick="downloadGradient('g8', 'Cyberpunk-Glow')">Download Image</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="gradient-preview g9"></div>
+        <div class="card-info">
+            <span class="card-title">9. Midnight Pop</span>
+            <div class="code-block">linear-gradient(90deg, #3F2B96 0%, #FF8C00 100%)</div>
+            <button class="download-btn" onclick="downloadGradient('g9', 'Midnight-Pop')">Download Image</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="gradient-preview g10"></div>
+        <div class="card-info">
+            <span class="card-title">10. Arctic Fire</span>
+            <div class="code-block">linear-gradient(to bottom, #4FACFE, #FF8C00)</div>
+            <button class="download-btn" onclick="downloadGradient('g10', 'Arctic-Fire')">Download Image</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="gradient-preview g11"></div>
+        <div class="card-info">
+            <span class="card-title">11. The Eclipse</span>
+            <div class="code-block">radial-gradient(circle, #FF8C00, #000000)</div>
+            <button class="download-btn" onclick="downloadGradient('g11', 'The-Eclipse')">Download Image</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="gradient-preview g12"></div>
+        <div class="card-info">
+            <span class="card-title">12. Slate & Spice</span>
+            <div class="code-block">linear-gradient(45deg, #434343, #FF8C00)</div>
+            <button class="download-btn" onclick="downloadGradient('g12', 'Slate-Spice')">Download Image</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="gradient-preview g13"></div>
+        <div class="card-info">
+            <span class="card-title">13. Industrial Glow</span>
+            <div class="code-block">linear-gradient(to right, #616161, #9BC5C3, #FF8C00)</div>
+            <button class="download-btn" onclick="downloadGradient('g13', 'Industrial-Glow')">Download Image</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="gradient-preview g14"></div>
+        <div class="card-info">
+            <span class="card-title">14. Royal Orange</span>
+            <div class="code-block">linear-gradient(135deg, #6A11CB, #2575FC, #FF8C00)</div>
+            <button class="download-btn" onclick="downloadGradient('g14', 'Royal-Orange')">Download Image</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="gradient-preview g15"></div>
+        <div class="card-info">
+            <span class="card-title">15. Neon Forest</span>
+            <div class="code-block">linear-gradient(45deg, #FF8C00, #38EF7D)</div>
+            <button class="download-btn" onclick="downloadGradient('g15', 'Neon-Forest')">Download Image</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="gradient-preview g16"></div>
+        <div class="card-info">
+            <span class="card-title">16. Triadic Pop</span>
+            <div class="code-block">linear-gradient(to right, #FF8C00, #8E44AD, #2ECC71)</div>
+            <button class="download-btn" onclick="downloadGradient('g16', 'Triadic-Pop')">Download Image</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="gradient-preview g17"></div>
+        <div class="card-info">
+            <span class="card-title">17. Soft Vaporwave</span>
+            <div class="code-block">linear-gradient(45deg, #F093FB, #F5576C, #FF8C00)</div>
+            <button class="download-btn" onclick="downloadGradient('g17', 'Soft-Vaporwave')">Download Image</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="gradient-preview g18"></div>
+        <div class="card-info">
+            <span class="card-title">18. Citrus Zing</span>
+            <div class="code-block">linear-gradient(135deg, #FF8C00 10%, #DCE35B 100%)</div>
+            <button class="download-btn" onclick="downloadGradient('g18', 'Citrus-Zing')">Download Image</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="gradient-preview g19"></div>
+        <div class="card-info">
+            <span class="card-title">19. Solar Flare</span>
+            <div class="code-block">radial-gradient(circle, #FF8C00 0%, #B22222 100%)</div>
+            <button class="download-btn" onclick="downloadGradient('g19', 'Solar-Flare')">Download Image</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="gradient-preview g20"></div>
+        <div class="card-info">
+            <span class="card-title">20. The Minimalist</span>
+            <div class="code-block">linear-gradient(to bottom, #FFFFFF, #FF8C00)</div>
+            <button class="download-btn" onclick="downloadGradient('g20', 'The-Minimalist')">Download Image</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function downloadGradient(className, fileName) {
+        // 1. Setup Canvas
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 1500;
+        canvas.height = 500;
+
+        // 2. Get the actual computed style from the preview element
+        const element = document.querySelector('.' + className);
+        const gradientStyle = window.getComputedStyle(element).backgroundImage;
+
+        // 3. Create a temporary SVG to draw the CSS gradient
+        // This is the most reliable way to convert complex CSS to canvas
+        const svg = `
+            <svg xmlns="http://www.w3.org/2000/svg" width="${canvas.width}" height="${canvas.height}">
+                <foreignObject width="100%" height="100%">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="width:100%;height:100%;background:${gradientStyle};">
+                    </div>
+                </foreignObject>
+            </svg>`;
+
+        const img = new Image();
+        const svgBlob = new Blob([svg], {type: 'image/svg+xml;charset=utf-8'});
+        const url = URL.createObjectURL(svgBlob);
+
+        img.onload = function() {
+            ctx.drawImage(img, 0, 0);
+            
+            // 4. Trigger Download
+            const pngUrl = canvas.toDataURL("image/png");
+            const downloadLink = document.createElement("a");
+            downloadLink.href = pngUrl;
+            downloadLink.download = `${fileName}.png`;
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+            
+            // Cleanup
+            URL.revokeObjectURL(url);
+        };
+
+        img.src = url;
+    }
+</script>
+
+</body>
+</html>
