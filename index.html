@@ -3,218 +3,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orange Gradient Showcase</title>
+    <title>100 Orange Gradients - Twitter Header Gallery</title>
     <style>
-        :root {
-            --orange-base: #FF8C00;
-        }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f9;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #1a1a1a;
+            color: white;
             margin: 0;
-            padding: 40px 20px;
-            color: #333;
+            padding: 20px;
         }
 
         header {
             text-align: center;
-            margin-bottom: 50px;
+            padding: 40px 0;
         }
 
-        h1 {
-            color: var(--orange-base);
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
+        h1 { margin: 0; color: #FF8C00; font-size: 2.5rem; }
+        p { color: #888; margin-top: 10px; }
 
-        .grid {
+        .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
             gap: 30px;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
-        .card {
-            background: white;
-            border-radius: 15px;
+        .gradient-card {
+            background: #2a2a2a;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.2s;
         }
 
-        .card:hover {
+        .gradient-card:hover {
             transform: translateY(-5px);
         }
 
-        .gradient-preview {
-            height: 200px;
+        .preview {
             width: 100%;
+            aspect-ratio: 3 / 1; /* Twitter Header Ratio */
+            background: #333;
         }
 
-        .card-info {
-            padding: 20px;
-            flex-grow: 1;
+        .controls {
+            padding: 15px;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .card-title {
-            font-weight: bold;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            display: block;
+        .info {
+            font-size: 0.85rem;
+            color: #ccc;
         }
 
-        .code-block {
-            background: #f0f0f0;
-            padding: 10px;
-            border-radius: 5px;
-            font-family: monospace;
-            font-size: 0.8rem;
-            word-break: break-all;
-            color: #555;
-            border: 1px solid #ddd;
-            margin-bottom: 15px;
-        }
-
-        .download-btn {
-            background-color: var(--orange-base);
+        .btn-download {
+            background: #FF8C00;
             color: white;
             border: none;
-            padding: 10px;
-            border-radius: 5px;
+            padding: 8px 16px;
+            border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
+            font-size: 0.8rem;
             transition: background 0.2s;
-            text-align: center;
-            text-decoration: none;
-            font-size: 0.9rem;
-            margin-top: auto;
         }
 
-        .download-btn:hover {
-            background-color: #e67e00;
+        .btn-download:hover {
+            background: #e67e00;
         }
 
-        /* Gradient Definitions */
-        .g1 { background: linear-gradient(45deg, #FF8C00, #FF0080); }
-        .g2 { background: linear-gradient(to right, #F6D365, #FF8C00); }
-        .g3 { background: linear-gradient(135deg, #FF8C00 0%, #FF4E50 100%); }
-        .g4 { background: linear-gradient(to top, #FF8C00, #FFA07A); }
-        .g5 { background: linear-gradient(90deg, #FF8C00, #ED1E79); }
-        .g6 { background: linear-gradient(45deg, #FF8C00, #00F2FE); }
-        .g7 { background: linear-gradient(to right, #2C3E50, #FF8C00); }
-        .g8 { background: linear-gradient(135deg, #00C6FF, #0072FF, #FF8C00); }
-        .g9 { background: linear-gradient(90deg, #3F2B96 0%, #FF8C00 100%); }
-        .g10 { background: linear-gradient(to bottom, #4FACFE, #FF8C00); }
-        .g11 { background: radial-gradient(circle, #FF8C00, #000000); }
-        .g12 { background: linear-gradient(45deg, #434343, #FF8C00); }
-        .g13 { background: linear-gradient(to right, #616161, #9BC5C3, #FF8C00); }
-        .g14 { background: linear-gradient(135deg, #6A11CB, #2575FC, #FF8C00); }
-        .g15 { background: linear-gradient(45deg, #FF8C00, #38EF7D); }
-        .g16 { background: linear-gradient(to right, #FF8C00, #8E44AD, #2ECC71); }
-        .g17 { background: linear-gradient(45deg, #F093FB, #F5576C, #FF8C00); }
-        .g18 { background: linear-gradient(135deg, #FF8C00 10%, #DCE35B 100%); }
-        .g19 { background: radial-gradient(circle, #FF8C00 0%, #B22222 100%); }
-        .g20 { background: linear-gradient(to bottom, #FFFFFF, #FF8C00); }
+        canvas { display: none; } /* Hidden canvas for rendering */
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Orange Gradient Collection</h1>
-    <p>Click the buttons to download high-res (1500x500) images.</p>
+    <h1>The Orange Gradient Vault</h1>
+    <p>100 unique 1500x500 Twitter-ready headers</p>
 </header>
 
-<div class="grid">
-    <!-- Card items - all updated with a download button -->
-    <div class="card">
-        <div class="gradient-preview g1"></div>
-        <div class="card-info">
-            <span class="card-title">1. Classic Sunset</span>
-            <div class="code-block">linear-gradient(45deg, #FF8C00, #FF0080)</div>
-            <button class="download-btn" onclick="downloadGradient('g1', 'Classic-Sunset')">Download Image</button>
-        </div>
-    </div>
+<div class="gallery" id="gallery"></div>
 
-    <div class="card">
-        <div class="gradient-preview g2"></div>
-        <div class="card-info">
-            <span class="card-title">2. Golden Hour</span>
-            <div class="code-block">linear-gradient(to right, #F6D365, #FF8C00)</div>
-            <button class="download-btn" onclick="downloadGradient('g2', 'Golden-Hour')">Download Image</button>
-        </div>
-    </div>
+<!-- Hidden Canvas for Image Generation -->
+<canvas id="exportCanvas" width="1500" height="500"></canvas>
 
-    <div class="card">
-        <div class="gradient-preview g3"></div>
-        <div class="card-info">
-            <span class="card-title">3. Fire & Ice</span>
-            <div class="code-block">linear-gradient(135deg, #FF8C00 0%, #FF4E50 100%)</div>
-            <button class="download-btn" onclick="downloadGradient('g3', 'Fire-and-Ice')">Download Image</button>
-        </div>
-    </div>
+<script>
+    const gallery = document.getElementById('gallery');
+    const canvas = document.getElementById('exportCanvas');
+    const ctx = canvas.getContext('2d');
 
-    <div class="card">
-        <div class="gradient-preview g4"></div>
-        <div class="card-info">
-            <span class="card-title">4. Peachy Keen</span>
-            <div class="code-block">linear-gradient(to top, #FF8C00, #FFA07A)</div>
-            <button class="download-btn" onclick="downloadGradient('g4', 'Peachy-Keen')">Download Image</button>
-        </div>
-    </div>
+    // Base Orange Color from your image
+    const baseOrange = "#FF8C00";
 
-    <div class="card">
-        <div class="gradient-preview g5"></div>
-        <div class="card-info">
-            <span class="card-title">5. Tropical Heat</span>
-            <div class="code-block">linear-gradient(90deg, #FF8C00, #ED1E79)</div>
-            <button class="download-btn" onclick="downloadGradient('g5', 'Tropical-Heat')">Download Image</button>
-        </div>
-    </div>
+    // Helper to generate 100 unique color pairs/triplets
+    function generateGradients() {
+        const list = [];
+        const variations = [
+            // Sunset / Warm
+            { colors: [baseOrange, "#FF0080"], name: "Velvet Sunset" },
+            { colors: [baseOrange, "#FF4E50"], name: "Solar Flare" },
+            { colors: ["#F6D365", baseOrange], name: "Golden Morning" },
+            // High Contrast / Cool
+            { colors: [baseOrange, "#00F2FE"], name: "Neon Frost" },
+            { colors: ["#2C3E50", baseOrange], name: "Midnight Embers" },
+            { colors: [baseOrange, "#38EF7D"], name: "Citrus Grove" },
+            // Modern / Moody
+            { colors: ["#000000", baseOrange], name: "Total Eclipse" },
+            { colors: ["#6A11CB", "#2575FC", baseOrange], name: "Cyber Galaxy" },
+            { colors: ["#434343", baseOrange], name: "Industrial Glow" },
+        ];
 
-    <div class="card">
-        <div class="gradient-preview g6"></div>
-        <div class="card-info">
-            <span class="card-title">6. Electric Punch</span>
-            <div class="code-block">linear-gradient(45deg, #FF8C00, #00F2FE)</div>
-            <button class="download-btn" onclick="downloadGradient('g6', 'Electric-Punch')">Download Image</button>
-        </div>
-    </div>
+        for (let i = 1; i <= 100; i++) {
+            let type = i % 5;
+            let angle = (i * 45) % 360;
+            let colors;
 
-    <div class="card">
-        <div class="gradient-preview g7"></div>
-        <div class="card-info">
-            <span class="card-title">7. Deep Ocean Sun</span>
-            <div class="code-block">linear-gradient(to right, #2C3E50, #FF8C00)</div>
-            <button class="download-btn" onclick="downloadGradient('g7', 'Deep-Ocean-Sun')">Download Image</button>
-        </div>
-    </div>
+            // Logic to ensure 100 unique variations
+            if (i <= variations.length) {
+                colors = variations[i-1].colors;
+            } else {
+                // Procedural generation for the remaining
+                const hue = (i * 13) % 360;
+                colors = [baseOrange, `hsl(${hue}, 80%, 50%)`];
+                if (i % 3 === 0) colors.push(`hsl(${(hue+40)%360}, 70%, 20%)`);
+            }
 
-    <div class="card">
-        <div class="gradient-preview g8"></div>
-        <div class="card-info">
-            <span class="card-title">8. Cyberpunk Glow</span>
-            <div class="code-block">linear-gradient(135deg, #00C6FF, #0072FF, #FF8C00)</div>
-            <button class="download-btn" onclick="downloadGradient('g8', 'Cyberpunk-Glow')">Download Image</button>
-        </div>
-    </div>
+            list.push({
+                id: i,
+                angle: angle + "deg",
+                colors: colors,
+                css: `linear-gradient(${angle}deg, ${colors.join(', ')})`
+            });
+        }
+        return list;
+    }
 
-    <div class="card">
-        <div class="gradient-preview g9"></div>
-        <div class="card-info">
-            <span class="card-title">9. Midnight Pop</span>
-            <div class="code-block">linear-gradient(90deg, #3F2B96 0%, #FF8C00 100%)</div>
-            <button class="download-btn" onclick="downloadGradient('g9', 'Midnight-Pop')">Download Image</button>
-        </div>
-    </div>
+    const gradients = generateGradients();
 
-    <div class="card">
-        <div class="gradient-preview g10"></div>
+    // Render Cards
+    gradients.forEach(grad => {
+        const card = document.createElement('div');
+        card.className = 'gradient-card';
+        card.innerHTML = `
+            <div class="preview" style="background: ${grad.css}"></div>
+            <div class="controls">
+                <div class="info">
+                    <strong>#${grad.id}</strong><br>
+                    ${grad.colors.length} Colors
+                </div>
+                <button class="btn-download" onclick="downloadJPG('${grad.css}', ${grad.id})">
+                    Download JPG
+                </button>
+            </div>
+        `;
+        gallery.appendChild(card);
+    });
+
+    // JPG Download Logic
+    function downloadJPG(gradientStr, id) {
+        // 1. Parse the gradient for Canvas
+        // Simplified: We draw the gradient on the 1500x500 canvas
+        const parts = gradientStr.match(/hsl\([^)]+\)|#[a-fA-F0-9]+|rgb\([^)]+\)/g);
+        
+        // Create Linear Gradient on Canvas
+        const grd = ctx.createLinearGradient(0, 0, 1500, 500);
+        
+        parts.forEach((color, index) => {
+            grd.addColorStop(index / (parts.length - 1), color);
+        });
+
+        // 2. Draw to Canvas
+        ctx.fillStyle = grd;
+        ctx.fillRect(0, 0, 1500, 500);
+
+        // 3. Export as JPG
+        const link = document.createElement('a');
+        link.download = `orange-gradient-${id}.jpg`;
+        link.href = canvas.toDataURL("image/jpeg", 0.9); // 0.9 Quality
+        link.click();
+    }
+</script>
+
+</body>
+</html>        <div class="gradient-preview g10"></div>
         <div class="card-info">
             <span class="card-title">10. Arctic Fire</span>
             <div class="code-block">linear-gradient(to bottom, #4FACFE, #FF8C00)</div>
